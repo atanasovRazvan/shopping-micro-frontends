@@ -1,9 +1,10 @@
+import ProductList from "./components/ProductList.jsx";
+
+
 function App() {
-  return (
-      <div className="App">
-        Hey, i am Products
-      </div>
-  );
+    return(
+        <ProductList />
+    )
 }
 
 export default App;
