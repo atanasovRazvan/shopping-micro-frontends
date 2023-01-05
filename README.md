@@ -25,6 +25,6 @@ From the root folder, run the following commands:
 
 Now, everything should be set up. Opening the browser with [http://localhost:3000](http://localhost:3000), you should be able to open the Application.
 
-The micro frontends can also be checked if the commands above were run correctly, as follows:
-For the Cart micro frontend: [http://localhost:3001](http://localhost:3001)
-For the Products micro frontend: [http://localhost:3002](http://localhost:3002)
+The micro frontends can also be checked if the commands above were run correctly, as follows:  
+For the Cart micro frontend: [http://localhost:3001](http://localhost:3001)  
+For the Products micro frontend: [http://localhost:3002](http://localhost:3002)  
