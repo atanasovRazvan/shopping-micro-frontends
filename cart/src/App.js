@@ -1,8 +1,8 @@
+import Order from "./components/Order.jsx";
+
 function App() {
   return (
-    <div className="App">
-      Hey, I am Cart
-    </div>
+    <Order />
   );
 }
 
