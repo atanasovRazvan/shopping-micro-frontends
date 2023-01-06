@@ -1,7 +1,13 @@
 import ProductList from "./components/ProductList.jsx";
 
+function App() {
 
-function App({cartClicked}) {
+    const event = new Event('cartClicked');
+
+    const cartClicked = () => {
+        window.dispatchEvent(event);
+    }
+
     return(
         <ProductList cartClicked={cartClicked}/>
     )
