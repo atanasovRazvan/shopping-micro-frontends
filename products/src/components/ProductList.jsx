@@ -11,7 +11,7 @@ const fakeProduct = {
     price: "259 EUR",
 };
 
-const ProductList = () => {
+const ProductList = ({cartClicked}) => {
 
     const [numberOfItems, setNumberOfItems] = useState(0);
     const [products, setProducts] = useState([]);
@@ -45,7 +45,7 @@ const ProductList = () => {
                 }
             </div>
             <div className="products--cart">
-                <Cart number={numberOfItems}/>
+                <Cart number={numberOfItems} cartClicked={cartClicked}/>
             </div>
         </div>
 

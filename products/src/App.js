@@ -1,9 +1,9 @@
 import ProductList from "./components/ProductList.jsx";
 
 
-function App() {
+function App({cartClicked}) {
     return(
-        <ProductList />
+        <ProductList cartClicked={cartClicked}/>
     )
 }
 

@@ -1,13 +1,22 @@
+import {useState} from "react";
+import './App.css';
+
 function App() {
-  return (
-      <div className="App">
-          <h1>Hey, I am the Shopping App!</h1>
-          <hr />
-          <div id="root--cart" />
-          <hr />
-          <div id="root--products" />
+    //TODO: simple design: Simple Navigation and Background
+
+    const [homePage, setHomePage] = useState(true);
+
+    const setCartButtonJob = () => {
+        const cartButtonElement = document.getElementsByClassName("products--cart")[0];
+        cartButtonElement.onclick = function () {setHomePage(false)}
+    }
+
+    return (
+      <div className="App" onClick={() => setCartButtonJob()}>
+          <div id="root--cart" className={`shopping_component${homePage ? '--hidden' : ''}`}/>
+          <div id="root--products" className={`shopping_component${!homePage ? '--hidden' : ''}`}/>
       </div>
-  );
+    );
 }
 
 export default App;
