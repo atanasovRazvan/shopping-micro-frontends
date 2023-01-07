@@ -1,20 +1,35 @@
 import {Typography} from "@mui/material";
 import './styles/products.css'
+import axios from "axios";
+import {useEffect, useState} from "react";
 
 const Products = ({productList}) => {
 
+    const [allProducts, setAllProducts] = useState([]);
+
     const computePrice = () => {
         let total = 0;
-        productList.forEach((product) => total += product.number * product.price)
+        productList.forEach((product) => {
+            for(let i = 0; i < allProducts.length; i ++){
+                if(product.productId === allProducts[i].productId){
+                    total += Number(allProducts[i].price.slice(0, -4)) * product.number;
+                }
+            }
+        });
         return total;
     }
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/api/getAllProducts')
+            .then((res) => setAllProducts(res.data));
+    }, []);
 
     return (
         <div className="cart_products">
             {
                 productList.map((product) => (
                     <Typography
-                        key={product.id}
+                        key={product.productId}
                         variant="body"
                     >
                         {product.number}x {product.title.toUpperCase()}
