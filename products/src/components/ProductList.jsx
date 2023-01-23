@@ -10,14 +10,14 @@ const ProductList = ({cartClicked}) => {
     const [products, setProducts] = useState([]);
 
     const addToCart = async (id) => {
-        await axios.post('http://localhost:8080/api/addProductToCart', {productId: id})
+        await axios.post(`http://${location.hostname}:8080/api/addProductToCart`, {productId: id})
             .then(() => setNumberOfItems(numberOfItems + 1));
     }
 
     useEffect( () => {
-        axios.get('http://localhost:8080/api/getAllProducts')
+        axios.get(`http://${location.hostname}:8080/api/getAllProducts`)
             .then((res) => setProducts(res.data));
-        axios.get('http://localhost:8080/api/getProductsInCart')
+        axios.get(`http://${location.hostname}:8080/api/getProductsInCart`)
             .then((res) => setNumberOfItems(res.data.numberOfProducts));
     }, [])
 

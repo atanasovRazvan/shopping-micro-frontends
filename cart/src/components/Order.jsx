@@ -12,14 +12,14 @@ const Order = () => {
     const [emailSent, setEmailSent] = useState(false);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/getProductsInCart')
+        axios.get(`http://${location.hostname}:8080/api/getProductsInCart`)
             .then((res) => setProductList(res.data.products));
     }, [])
 
     const sendOrder = async (fullName, address, phoneNumber) => {
         const formDetails = {fullName, phoneNumber, address};
         setIsLoading(true);
-        await axios.post('http://localhost:8080/api/sendOrder', { formDetails })
+        await axios.post(`http://${location.hostname}:8080/api/sendOrder`, { formDetails })
             .finally(() => {
                 setIsLoading(false);
                 setEmailSent(true);

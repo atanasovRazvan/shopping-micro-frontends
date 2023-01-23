@@ -20,7 +20,7 @@ const Products = ({productList}) => {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/getAllProducts')
+        axios.get(`http://${location.hostname}:8080/api/getAllProducts`)
             .then((res) => setAllProducts(res.data));
     }, []);
 
